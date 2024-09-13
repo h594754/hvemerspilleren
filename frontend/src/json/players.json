@@ -1,0 +1,187 @@
+[
+    {
+      "draktnr": 1,
+      "navn": "Sander Tangvik",
+      "dateofbirth": "29.11.2002",
+      "nasjonalitet": "Norge",
+      "posisjon": "K",
+      "bilde": "https://www.rbk.no/lag/sander-tangvik/_/image/16d37fcc-8c5b-4b12-a7b8-a4b7c9b454c2:d6786f08ea1c7c6788dd417c2b52f83af656558d/block-1200-630/sander-tangvik.png.jpg?quality=85"
+    },
+    {
+      "draktnr": 12,
+      "navn": "Rasmus Sandberg",
+      "dateofbirth": "23.04.2001",
+      "nasjonalitet": "Norge",
+      "posisjon": "K",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/464467-1712248045.jpg?lm=1"
+    },
+    {
+      "draktnr": 2,
+      "navn": "Erlend Dahl Reitan",
+      "dateofbirth": "11.09.1997",
+      "nasjonalitet": "Norge",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/369100-1660143496.jpg?lm=1"
+    },
+    {
+      "draktnr": 3,
+      "navn": "Jonathan Augstinsson",
+      "dateofbirth": "30.03.1996",
+      "nasjonalitet": "Sverige",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/297482-1548414552.jpg?lm=1"
+    },
+    {
+      "draktnr": 4,
+      "navn": "Luka Racic",
+      "dateofbirth": "08.04.1999",
+      "nasjonalitet": "Danmark",
+      "posisjon": "FOR",
+      "bilde": "https://www.rbk.no/lag/luka-racic/_/image/49c06c8d-8c69-46da-a4c8-7d92cb587eb4:dd38503cda1fb940f1f93095306d8e81bcc35aa5/block-1200-630/luca-racic.png.jpg?quality=85"
+    },
+    {
+      "draktnr": 19,
+      "navn": "Adrian Pereira",
+      "dateofbirth": "31.08.1999",
+      "nasjonalitet": "Norge",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/507310-1613847004.jpg?lm=1"
+    },
+    {
+      "draktnr": 21,
+      "navn": "Tomas Nemcik",
+      "dateofbirth": "19.04.1999",
+      "nasjonalitet": "Slovakia",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/482829-1699980453.png?lm=1"
+    },
+    {
+      "draktnr": 23,
+      "navn": "Ulrik Yttergård Jenssen",
+      "dateofbirth": "17.07.1996",
+      "nasjonalitet": "Norge",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/header/239044-1629791700.jpg?lm=1"
+    },
+    {
+      "draktnr": 25,
+      "navn": "Adam Andersson",
+      "dateofbirth": "11.11.1996",
+      "nasjonalitet": "Sverige",
+      "posisjon": "FOR",
+      "bilde": "https://www.transfermarkt.com/adam-andersson/profil/spieler/255468"
+    },
+    {
+      "draktnr": 38,
+      "navn": "Mikkel Konradsen Ceide",
+      "dateofbirth": "03.11.2001",
+      "nasjonalitet": "Norge",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/794757-1712250240.jpg?lm=1"
+    },
+    {
+      "draktnr": 50,
+      "navn": "Håkon Volden",
+      "dateofbirth": "25.05.2007",
+      "nasjonalitet": "Norge",
+      "posisjon": "FOR",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/1126113-1712247727.jpg?lm=1"
+    },
+    {
+      "draktnr": 5,
+      "navn": "Moustafa Zeidan",
+      "dateofbirth": "07.06.1998",
+      "nasjonalitet": "Palestina",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/315474-1563979987.jpg?lm=1"
+    },
+    {
+      "draktnr": 6,
+      "navn": "Santeri Vaananen",
+      "dateofbirth": "01.01.2002",
+      "nasjonalitet": "Finland",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/564621-1622103849.jpg?lm=1"
+    },
+    {
+      "draktnr": 7,
+      "navn": "Markus Henriksen",
+      "dateofbirth": "25.07.1992",
+      "nasjonalitet": "Norge",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/122011-1711131638.jpg?lm=1"
+    },
+    {
+      "draktnr": 10,
+      "navn": "Ole Sælnes",
+      "dateofbirth": "07.07.1994",
+      "nasjonalitet": "Norge",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/175961-1553100742.jpg?lm=1"
+    },
+    {
+      "draktnr": 20,
+      "navn": "Edvard Tagseth",
+      "dateofbirth": "23.01.2001",
+      "nasjonalitet": "Norge",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/432700-1712249673.jpg?lm=1"
+    },
+    {
+      "draktnr": 39,
+      "navn": "Marius Broholm",
+      "dateofbirth": "26.12.2004",
+      "nasjonalitet": "Norge",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/903359-1711132318.jpg?lm=1"
+    },
+    {
+      "draktnr": 41,
+      "navn": "Sverre Nypan",
+      "dateofbirth": "19.12.2006",
+      "nasjonalitet": "Norge",
+      "posisjon": "MID",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/911736-1688034112.jpg?lm=1"
+    },
+    {
+      "draktnr": 9,
+      "navn": "Ole Sæter",
+      "dateofbirth": "19.03.1996",
+      "nasjonalitet": "Norge",
+      "posisjon": "ANG",
+      "bilde": "https://www.transfermarkt.com/ole-saeter/profil/spieler/664521"
+    },
+    {
+      "draktnr": 18,
+      "navn": "Noah Holm",
+      "dateofbirth": "23.05.2001",
+      "nasjonalitet": "Norge",
+      "posisjon": "ANG",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/494177-1672838388.jpg?lm=1"
+    },
+    {
+      "draktnr": 35,
+      "navn": "Emil Konradsen Ceide",
+      "dateofbirth": "03.09.2001",
+      "nasjonalitet": "Norge",
+      "posisjon": "ANG",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/508371-1663594454.jpg?lm=1"
+    },
+    {
+      "draktnr": 45,
+      "navn": "Jesper Reitan-Sunde",
+      "dateofbirth": "31.01.2006",
+      "nasjonalitet": "Norge",
+      "posisjon": "ANG",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/944446-1712249890.jpg?lm=1"
+    },
+    {
+      "draktnr": 46,
+      "navn": "Noah Sahsah",
+      "dateofbirth": "08.07.2005",
+      "nasjonalitet": "Danmark",
+      "posisjon": "ANG",
+      "bilde": "https://img.a.transfermarkt.technology/portrait/big/802516-1667321400.jpg?lm=1"
+    }
+  ]
+  
