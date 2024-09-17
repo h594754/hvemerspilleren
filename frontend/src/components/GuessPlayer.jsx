@@ -11,7 +11,9 @@
         const [filteredPlayers, setFilteredPlayers] = useState(null);
         const [guessCount, setGuessCount] = useState(0);
         const [searchItem, setSearchItem] = useState("");
+        const [correctPlayer, setCorrectPlayer] = useState(false);
         const allPlayers = players; 
+        
 
         
 
@@ -26,8 +28,7 @@
 
         const guessPlayer = (guess) => {
             if(guess === playerToFind.navn) {
-                alert("YOU WON!")
-                console.log("True is run!")
+                setCorrectPlayer(true);
                 return true;
             } 
 
@@ -121,7 +122,7 @@
         return (
             <div>
                 
-                    {guessCount < 5 ? 
+                    {guessCount < 5 && !correctPlayer ? 
                 
                     
                     <div>
@@ -141,6 +142,16 @@
                     }
 
                     <div>
+
+                        {correctPlayer &&
+                        <div>
+                            <p className="correct">{playerToFind.navn}</p>
+                            <p className="correct">{playerToFind.draktnr}</p>
+                            <p className="correct">{calculateAge(playerToFind.dateofbirth)}</p>
+                            <p className="correct">{playerToFind.nasjonalitet}</p>
+                            <p className="correct">{playerToFind.posisjon}</p>
+                        </div>}
+
                         {/* Check and display guess5 details if guessed */}
                         {guess5 && (
                             <div>
