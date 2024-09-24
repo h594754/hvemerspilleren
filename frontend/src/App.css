@@ -95,10 +95,11 @@ body {
   border-bottom: 1px solid #ddd;
   transition: background-color 0.3s ease;
   color: black;
-  width: 100%;
   box-sizing: border-box;
-  margin-top: 3px;
   border-radius: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 3px;
 }
 
 .searchbar li:hover {
@@ -126,11 +127,27 @@ body {
 }
 
 
-.skill-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between cards */
-  justify-content: center;
-  margin: 20px;
+
+.player-card-container {
+  display: grid;
+  grid-template-columns: 200px 80px 80px 120px 10px; /* Adjust widths as needed */
+  gap: 20px; /* Space between each column */
+  padding: 10px;
+  background-color: #333;
+  border-radius: 4px;
+  color: white;
+  align-items: center; /* Ensures vertical alignment in each cell */
+  max-width: 600px; /* Set a max width for the container */
+  margin: 0 auto; /* Center the grid horizontally */
+  margin-top: 3px;
 }
+
+.player-name {
+  white-space: nowrap; /* Prevents names from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds '...' if name is too long */
+}
+
+
+
 
