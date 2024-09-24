@@ -1,5 +1,6 @@
     import { useEffect, useState } from "react"
     import players from "../json/players.json"
+    import { Box } from "@mui/material";
 
     export default function GuessPlayer() {
         const [playerToFind, setPlayerToFind] = useState(null);
@@ -26,6 +27,8 @@
             findPlayer(); 
         }, []);
 
+        
+
         const guessPlayer = (guess) => {
             if(guess === playerToFind.navn) {
                 setCorrectPlayer(true);
@@ -49,6 +52,10 @@
                 const filteredItems = allPlayers.filter((player) => player.navn.toLowerCase().includes(searchTerm.toLowerCase()));
                 setFilteredPlayers(filteredItems);
             }
+            if(searchItem === "") {
+                setFilteredPlayers(null);
+            }
+
             
         }
 
@@ -121,252 +128,213 @@
 
         return (
             <div>
-                
-                    {guessCount < 5 && !correctPlayer ? 
-                
-                    
-                    <div>
-                    <input type="text" value={searchItem} onChange={handleInputChange} />
+              <div className="searchbar-container">
+                {guessCount < 5 && !correctPlayer && (
+                  <div className="searchbar">
+                    <input
+                      type="text"
+                      value={searchItem}
+                      onChange={handleInputChange}
+                      placeholder="Gjett en spiller"
+                    />
                     <ul>
-                        
-                        {searchItem && filteredPlayers?.map((player) => (
-                            <li key={player.navn} onClick={() => handleSubmit(player.navn)}>{player.navn} {player.posisjon}</li>
-                        ))}
+                      {searchItem && filteredPlayers?.map((player) => (
+                        <li key={player.navn} onClick={() => handleSubmit(player.navn)}>
+                          {player.navn} {player.posisjon}
+                        </li>
+                      ))}
                     </ul>
-                    </div>
-                     
-                    :
-                    <div>
-                        The correct player was: {playerToFind.navn} 
-                    </div>
-                    }
-
-                    <div>
-
-                        {correctPlayer &&
+                  </div>
+                )}
+              </div>
+          
+              <div className="results-container">
+                    {correctPlayer && (
                         <div>
-                            <p className="correct">{playerToFind.navn}</p>
-                            <p className="correct">{playerToFind.draktnr}</p>
-                            <p className="correct">{calculateAge(playerToFind.dateofbirth)}</p>
-                            <p className="correct">{playerToFind.nasjonalitet}</p>
-                            <p className="correct">{playerToFind.posisjon}</p>
-                        </div>}
-
-                        {/* Check and display guess5 details if guessed */}
-                        {guess5 && (
-                            <div>
-                            <p>{guess5.navn}</p>
-                            
-                            {playerToFind.draktnr === guess5.draktnr ? 
-                                <p className="correct">{guess5.draktnr}</p>
-                                :(
-                                    playerToFind.draktnr > guess5.draktnr ? (
-                                        <p>&uarr; {guess5.draktnr}</p>
-                                    )
-                                    : 
-                                    (
-                                        <p>&darr; {guess5.draktnr}</p>
-                                    )
-                                )
-                            }
-
-                            {calculateAge(playerToFind.dateofbirth) === calculateAge(guess5.dateofbirth) ? (
-                                <p className="correct"> {calculateAge(guess5.dateofbirth)} </p>
-                            ) : (
-                                calculateAge(playerToFind.dateofbirth) > calculateAge(guess5.dateofbirth) ? (
-                                    <p>&uarr; {calculateAge(guess5.dateofbirth)}</p>
-                            ) : (
-                                    <p>&darr; {calculateAge(guess5.dateofbirth)}</p>
-                            )
-                            )}
-
-                            <div>
-                            {guess5.nasjonalitet === playerToFind.nasjonalitet ? 
-                                <p className="correct"> {guess5.nasjonalitet} </p> :
-                                <p style={{color: "red"}}>{guess5.nasjonalitet} </p> 
-                            }
-                            </div>
-                            {guess5.posisjon === playerToFind.posisjon ? 
-                                <p className="correct"> {guess5.posisjon} </p> :
-                                <p style={{color: "red"}}>{guess5.posisjon} </p> 
-                            }
-                            {/* <img src={guess5.bilde} alt="Playerimage" style={{ height: "20px", width: "auto" }} /> */}
-                            </div>
-                        )}
-
-                        {/* Check and display guess4 details if guessed */}
-                        {guess4 && (
-                            <div>
-                            <p>{guess4.navn}</p>
-                            {playerToFind.draktnr === guess4.draktnr ? 
-                                <p className="correct">{guess4.draktnr}</p>
-                                :(
-                                    playerToFind.draktnr > guess4.draktnr ? (
-                                        <p>&uarr; {guess4.draktnr}</p>
-                                    )
-                                    : 
-                                    (
-                                        <p>&darr; {guess4.draktnr}</p>
-                                    )
-                                )
-                            }
-
-                            {calculateAge(playerToFind.dateofbirth) === calculateAge(guess4.dateofbirth) ? (
-                                <p className="correct"> {calculateAge(guess4.dateofbirth)} </p>
-                            ) : (
-                                calculateAge(playerToFind.dateofbirth) > calculateAge(guess4.dateofbirth) ? (
-                                    <p>&uarr; {calculateAge(guess4.dateofbirth)}</p>
-                            ) : (
-                                    <p>&darr; {calculateAge(guess4.dateofbirth)}</p>
-                            )
-                            )}
-
-
-                            {guess4.nasjonalitet === playerToFind.nasjonalitet ? 
-                                <p className="correct"> {guess4.nasjonalitet} </p> :
-                                <p style={{color: "red"}}>{guess4.nasjonalitet} </p> 
-                            }
-                            {guess4.posisjon === playerToFind.posisjon ? 
-                                <p className="correct"> {guess4.posisjon} </p> :
-                                <p style={{color: "red"}}>{guess4.posisjon} </p> 
-                            }
-                            {/* <img src={guess4.bilde} alt="Playerimage" style={{ height: "20px", width: "auto" }} /> */}
-                            </div>
-                        )}
-
-                        {/* Check and display guess3 details if guessed */}
-                        {guess3 && (
-                            <div>
-                            <p>{guess3.navn}</p>
-                            {playerToFind.draktnr === guess3.draktnr ? 
-                                <p className="correct">{guess3.draktnr}</p>
-                                :(
-                                    playerToFind.draktnr > guess3.draktnr ? (
-                                        <p>&uarr; {guess3.draktnr}</p>
-                                    )
-                                    : 
-                                    (
-                                        <p>&darr; {guess3.draktnr}</p>
-                                    )
-                                )
-                            }
-                            
-                            {calculateAge(playerToFind.dateofbirth) === calculateAge(guess1.dateofbirth) ? (
-                                <p className="correct"> {calculateAge(guess3.dateofbirth)} </p>
-                            ) : (
-                                calculateAge(playerToFind.dateofbirth) > calculateAge(guess3.dateofbirth) ? (
-                                    <p>&uarr; {calculateAge(guess3.dateofbirth)}</p>
-                            ) : (
-                                    <p>&darr; {calculateAge(guess3.dateofbirth)}</p>
-                            )
-                            )}
-                            
-                            
-                            {guess3.nasjonalitet === playerToFind.nasjonalitet ? 
-                                <p className="correct"> {guess3.nasjonalitet} </p> :
-                                <p style={{color: "red"}}>{guess3.nasjonalitet} </p> 
-                            }
-                            {guess3.posisjon === playerToFind.posisjon ? 
-                               <p className="correct"> {guess3.posisjon} </p> :
-                                <p style={{color: "red"}}>{guess3.posisjon} </p> 
-                            }
-                            {/* <img src={guess3.bilde} alt="Playerimage" style={{ height: "20px", width: "auto" }} /> */}
-                            </div>
-                        )}
-
-                        {/* Check and display guess2 details if guessed */}
-                        {guess2 && (
-                            <div>
-                            <p>{guess2.navn}</p>
-                            {playerToFind.draktnr === guess2.draktnr ? 
-                                <p className="correct">{guess2.draktnr}</p>
-                                :(
-                                    playerToFind.draktnr > guess2.draktnr ? (
-                                        <p>&uarr; {guess2.draktnr}</p>
-                                    )
-                                    : 
-                                    (
-                                        <p>&darr; {guess2.draktnr}</p>
-                                    )
-                                )
-                            }
-                            
-                            {calculateAge(playerToFind.dateofbirth) === calculateAge(guess2.dateofbirth) ? (
-                                <p className="correct"> {calculateAge(guess1.dateofbirth)} </p>
-                            ) : (
-                                calculateAge(playerToFind.dateofbirth) > calculateAge(guess2.dateofbirth) ? (
-                                    <p>&uarr; {calculateAge(guess2.dateofbirth)}</p>
-                            ) : (
-                                    <p>&darr; {calculateAge(guess2.dateofbirth)}</p>
-                            )
-                            )}
-                            
-                            
-                            
-                            {guess2.nasjonalitet === playerToFind.nasjonalitet ? 
-                                <p className="correct"> {guess2.nasjonalitet} </p> :
-                                <p style={{color: "red"}}>{guess2.nasjonalitet} </p> 
-                            }
-                            {guess2.posisjon === playerToFind.posisjon ? 
-                                <p className="correct"> {guess2.posisjon} </p> :
-                                <p style={{color: "red"}}>{guess2.posisjon} </p> 
-                            }
-                            {/* <img src={guess2.bilde} alt="Playerimage" style={{ height: "20px", width: "auto" }} /> */}
-                            </div>
-                        )}
-
-                        {/* Check and display guess1 details if guessed */}
-                        {guess1 && (
-                            <div>
-                            <p>{guess1.navn}</p>
-
-                            {playerToFind.draktnr === guess1.draktnr ? 
-                                <p className="correct">{guess1.draktnr}</p>
-                                :(
-                                    playerToFind.draktnr > guess1.draktnr ? (
-                                        <p>&uarr; {guess1.draktnr}</p>
-                                    )
-                                    : 
-                                    (
-                                        <p>&darr; {guess1.draktnr}</p>
-                                    )
-                                )
-                            }
-                            
-                            {calculateAge(playerToFind.dateofbirth) === calculateAge(guess1.dateofbirth) ? (
-                                <p className="correct"> {calculateAge(guess1.dateofbirth)} </p>
-                            ) : (
-                                calculateAge(playerToFind.dateofbirth) > calculateAge(guess1.dateofbirth) ? (
-                                    <p>&uarr; {calculateAge(guess1.dateofbirth)}</p>
-                            ) : (
-                                    <p>&darr; {calculateAge(guess1.dateofbirth)}</p>
-                            )
-                            )}
-                           
-
-
-
-
-                            {guess1.nasjonalitet === playerToFind.nasjonalitet ? 
-                                <p className="correct"> {guess1.nasjonalitet} </p> :
-                                <p style={{color: "red"}}>{guess1.nasjonalitet} </p> 
-                            }
-                            {guess1.posisjon === playerToFind.posisjon ? 
-                                <p className="correct"> {guess1.posisjon} </p> :
-                                <p style={{color: "red"}}>{guess1.posisjon} </p> 
-                            }
-                            {/* <img src={guess1.bilde} alt="Playerimage" style={{ height: "20px", width: "auto" }} /> */}
-                            </div>
-                        )}
+                        <Box className="skill-card-container">
+                        <p className="correct">{playerToFind.navn}</p>
+                        <p className="correct">#{playerToFind.draktnr}</p>
+                        <p className="correct">{calculateAge(playerToFind.dateofbirth)}</p>
+                        <p className="correct">{playerToFind.nasjonalitet}</p>
+                        <p className="correct">{playerToFind.posisjon}</p>
+                        </Box>
                     </div>
+                    )}
 
 
-            
-                    
-
-
+                {guess5 && (
+                  <div>
+                    <Box className="skill-card-container">
+                    <p>{guess5.navn}</p>
+                    {playerToFind.draktnr === guess5.draktnr ? (
+                      <p className="correct">#{guess5.draktnr}</p>
+                    ) : (playerToFind.draktnr > guess5.draktnr ? (
+                      <p>&uarr; #{guess5.draktnr}</p>
+                    ) : (
+                      <p>&darr; #{guess5.draktnr}</p>
+                    ))}
+                    {calculateAge(playerToFind.dateofbirth) === calculateAge(guess5.dateofbirth) ? (
+                      <p className="correct">{calculateAge(guess5.dateofbirth)}</p>
+                    ) : (calculateAge(playerToFind.dateofbirth) > calculateAge(guess5.dateofbirth) ? (
+                      <p>&uarr; {calculateAge(guess5.dateofbirth)}</p>
+                    ) : (
+                      <p>&darr; {calculateAge(guess5.dateofbirth)}</p>
+                    ))}
+                    <div>
+                      {guess5.nasjonalitet === playerToFind.nasjonalitet ? (
+                        <p className="correct">{guess5.nasjonalitet}</p>
+                      ) : (
+                        <p style={{ color: "red" }}>{guess5.nasjonalitet}</p>
+                      )}
+                    </div>
+                    {guess5.posisjon === playerToFind.posisjon ? (
+                      <p className="correct">{guess5.posisjon}</p>
+                    ) : (
+                      <p style={{ color: "red" }}>{guess5.posisjon}</p>
+                    )}
+                  </Box>
+                  </div>
+                )}
+          
+                {guess4 && (
+                  <div>
+                    <Box className="skill-card-container">
+                    <p>{guess4.navn}</p>
+                    {playerToFind.draktnr === guess4.draktnr ? (
+                      <p className="correct">#{guess4.draktnr}</p>
+                    ) : (playerToFind.draktnr > guess4.draktnr ? (
+                      <p>&uarr; #{guess4.draktnr}</p>
+                    ) : (
+                      <p>&darr; #{guess4.draktnr}</p>
+                    ))}
+                    {calculateAge(playerToFind.dateofbirth) === calculateAge(guess4.dateofbirth) ? (
+                      <p className="correct">{calculateAge(guess4.dateofbirth)}</p>
+                    ) : (calculateAge(playerToFind.dateofbirth) > calculateAge(guess4.dateofbirth) ? (
+                      <p>&uarr; {calculateAge(guess4.dateofbirth)}</p>
+                    ) : (
+                      <p>&darr; {calculateAge(guess4.dateofbirth)}</p>
+                    ))}
+                    <div>
+                      {guess4.nasjonalitet === playerToFind.nasjonalitet ? (
+                        <p className="correct">{guess4.nasjonalitet}</p>
+                      ) : (
+                        <p style={{ color: "red" }}>{guess4.nasjonalitet}</p>
+                      )}
+                    </div>
+                    {guess4.posisjon === playerToFind.posisjon ? (
+                      <p className="correct">{guess4.posisjon}</p>
+                    ) : (
+                      <p style={{ color: "red" }}>{guess4.posisjon}</p>
+                    )}
+                    </Box>
+                  </div>
+                )}
+          
+                {guess3 && (
+                  <div>
+                    <Box className="skill-card-container">
+                    <p>{guess3.navn}</p>
+                    {playerToFind.draktnr === guess3.draktnr ? (
+                      <p className="correct">{guess3.draktnr}</p>
+                    ) : (playerToFind.draktnr > guess3.draktnr ? (
+                      <p>&uarr; #{guess3.draktnr}</p>
+                    ) : (
+                      <p>&darr; #{guess3.draktnr}</p>
+                    ))}
+                    {calculateAge(playerToFind.dateofbirth) === calculateAge(guess3.dateofbirth) ? (
+                      <p className="correct">{calculateAge(guess3.dateofbirth)}</p>
+                    ) : (calculateAge(playerToFind.dateofbirth) > calculateAge(guess3.dateofbirth) ? (
+                      <p>&uarr; {calculateAge(guess3.dateofbirth)}</p>
+                    ) : (
+                      <p>&darr; {calculateAge(guess3.dateofbirth)}</p>
+                    ))}
+                    <div>
+                      {guess3.nasjonalitet === playerToFind.nasjonalitet ? (
+                        <p className="correct">{guess3.nasjonalitet}</p>
+                      ) : (
+                        <p style={{ color: "red" }}>{guess3.nasjonalitet}</p>
+                      )}
+                    </div>
+                    {guess3.posisjon === playerToFind.posisjon ? (
+                      <p className="correct">{guess3.posisjon}</p>
+                    ) : (
+                      <p style={{ color: "red" }}>{guess3.posisjon}</p>
+                    )}
+                    </Box>
+                  </div>
+                )}
+          
+                {guess2 && (
+                  <div>
+                    <Box className="skill-card-container">
+                    <p>{guess2.navn}</p>
+                    {playerToFind.draktnr === guess2.draktnr ? (
+                      <p className="correct">#{guess2.draktnr}</p>
+                    ) : (playerToFind.draktnr > guess2.draktnr ? (
+                      <p>&uarr; #{guess2.draktnr}</p>
+                    ) : (
+                      <p>&darr; #{guess2.draktnr}</p>
+                    ))}
+                    {calculateAge(playerToFind.dateofbirth) === calculateAge(guess2.dateofbirth) ? (
+                      <p className="correct">{calculateAge(guess2.dateofbirth)}</p>
+                    ) : (calculateAge(playerToFind.dateofbirth) > calculateAge(guess2.dateofbirth) ? (
+                      <p>&uarr; {calculateAge(guess2.dateofbirth)}</p>
+                    ) : (
+                      <p>&darr; {calculateAge(guess2.dateofbirth)}</p>
+                    ))}
+                    <div>
+                      {guess2.nasjonalitet === playerToFind.nasjonalitet ? (
+                        <p className="correct">{guess2.nasjonalitet}</p>
+                      ) : (
+                        <p style={{ color: "red" }}>{guess2.nasjonalitet}</p>
+                      )}
+                    </div>
+                    {guess2.posisjon === playerToFind.posisjon ? (
+                      <p className="correct">{guess2.posisjon}</p>
+                    ) : (
+                      <p style={{ color: "red" }}>{guess2.posisjon}</p>
+                    )}
+                    </Box>
+                  </div>
+                )}
+          
+                {guess1 && (
+                  <div>
+                    <Box className="skill-card-container">
+                        <p>{guess1.navn}</p>
+                        {playerToFind.draktnr === guess1.draktnr ? (
+                        <p className="correct">#{guess1.draktnr}</p>
+                        ) : (playerToFind.draktnr > guess1.draktnr ? (
+                        <p>&uarr; #{guess1.draktnr}</p>
+                        ) : (
+                        <p>&darr; #{guess1.draktnr}</p>
+                        ))}
+                        {calculateAge(playerToFind.dateofbirth) === calculateAge(guess1.dateofbirth) ? (
+                        <p className="correct">{calculateAge(guess1.dateofbirth)}</p>
+                        ) : (calculateAge(playerToFind.dateofbirth) > calculateAge(guess1.dateofbirth) ? (
+                        <p>&uarr; {calculateAge(guess1.dateofbirth)}</p>
+                        ) : (
+                        <p>&darr; {calculateAge(guess1.dateofbirth)}</p>
+                        ))}
+                        <div>
+                        {guess1.nasjonalitet === playerToFind.nasjonalitet ? (
+                            <p className="correct">{guess1.nasjonalitet}</p>
+                        ) : (
+                            <p style={{ color: "red" }}>{guess1.nasjonalitet}</p>
+                        )}
+                        </div>
+                        {guess1.posisjon === playerToFind.posisjon ? (
+                        <p className="correct">{guess1.posisjon}</p>
+                        ) : (
+                        <p style={{ color: "red" }}>{guess1.posisjon}</p>
+                        )}
+                    </Box>
+                  </div>
+                )}
+              </div>
             </div>
-        )
+          );
+          
 
 
     }

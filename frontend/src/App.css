@@ -49,3 +49,88 @@
 .wrong {
   color: red;
 }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #242424; /* Ensure background color is consistent */
+  color: rgba(255, 255, 255, 0.87); /* Ensure text color is consistent */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Consistent font */
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+.searchbar {
+  position: relative; /* Changed from absolute */
+  margin-bottom: 20px; /* Ensure space below the search bar */
+  margin-top: 20%;
+}
+
+.searchbar input {
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  height: 40px;
+  width: 250px;
+  box-sizing: border-box; /* Ensure padding and borders don't affect width */
+}
+
+.searchbar ul {
+  position: absolute;
+  top: 100%; /* Position directly below the input */
+  left: 0;
+  width: 100%; /* Make it the same width as the input */
+  margin-top: 2px;
+  padding: 0;
+  z-index: 1000; /* Ensure the list appears above other elements */
+  background-color: #242424;
+}
+
+.searchbar li {
+  list-style: none;
+  padding: 10px;
+  background-color: lightgray;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3px;
+  border-radius: 15px;
+}
+
+.searchbar li:hover {
+  background-color: #b7b7b7a8; /* Highlight on hover */
+}
+
+.guesses-container {
+  position: relative; /* Ensure it is positioned relative to its container */
+  z-index: 500; /* Lower z-index than .searchbar */
+  margin-top: 20px; /* Add space if needed */
+  padding-top: 60px; /* Add padding to avoid overlap with the search bar */
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between guesses */
+}
+
+.guess-item {
+  padding: 10px;
+  background-color: #333; /* Change as needed */
+  border-radius: 4px;
+  color: white;
+}
+
+
+.skill-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: center;
+  margin: 20px;
+}
+
