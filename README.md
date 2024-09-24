@@ -3,9 +3,9 @@
 Et artig spill hvor man skal gjette riktig Rosenborg spiller. 
 
 ### Hvordan spille? 
-- Du har fem gjett til å finne den riktige.
-- Indikatoren for draktnr vil vise om den riktige spilleren har høyere eller lavere draktnr, det vil også gjelde med alder.
-- Hvis nasjonaliteten vises i grønn så har du valgt en spiller med riktig nasjonalitet, men ikke den spilleren som er riktig, samme gjelder posisjon.
+- Du har fem gjett til å finne den riktige spilleren.
+- Indikatoren for draktnr vil vise om den riktige spilleren har høyere eller lavere draktnr, det gjelder også for alder.
+- Hvis nasjonaliteten vises i grønn så har du valgt en spiller med riktig nasjonalitet, men ikke den spilleren som er riktig, det gjelder også for posisjon.
 - Når du har gjettet riktig spiller, vil du få grei beskjed. 
 
 # Tech
