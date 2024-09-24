@@ -7,8 +7,6 @@ Hvis nasjonaliteten vises i grønn så har du valgt en spiller med riktig nasjon
 Applikasjonen er skrevet i React.js
 
 # Disclaimer
-I do not earn any money whatsoever on this game. This game is a clone of the idea behind https://playfootball.games/who-are-ya/big-5/
-<br>
-This is just a coding project I have put together for fun. 
-<br>
-I have no ownership over the player data whatsoever and the data is collected from https://www.rbk.no/lag
+- I do not earn any money whatsoever on this game. This game is a clone of the idea behind https://playfootball.games/who-are-ya/big-5/
+- This is just a coding project I have put together for fun. 
+- I have no ownership over the player data whatsoever and the data is collected from https://www.rbk.no/lag
