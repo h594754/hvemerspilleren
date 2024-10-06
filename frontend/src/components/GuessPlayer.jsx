@@ -10,19 +10,47 @@
         const [searchItem, setSearchItem] = useState("");
         const [correctPlayer, setCorrectPlayer] = useState(false);
         const allPlayers = players; 
-        
+        const [level, setLevel] = useState(1);
 
         
 
         useEffect(() => {
             const findPlayer = () => {
-                const player = allPlayers[2]; // Setting a player for testing
-                setPlayerToFind(player); // Set the selected player
+                if(level == "1") {
+                    const player = allPlayers[2]; // Setting a player for testing
+                    setPlayerToFind(player);
+                    
+                }
+                else if(level == "2") {
+                    const player = allPlayers[6]; // Setting a player for testing
+                    setPlayerToFind(player);
+                    
+                }
+                else if(level == "3") {
+                    const player = allPlayers[10]; // Setting a player for testing
+                    setPlayerToFind(player);
+                    
+                }
+                else if(level == "4") {
+                    const player = allPlayers[11]; // Setting a player for testing
+                    setPlayerToFind(player);
+                    
+                }
+                
             }
 
             findPlayer(); 
-        }, []);
+        }, [level]);
 
+
+
+        const changeLevel = (newLevel) => {
+            setLevel(newLevel);
+            setSearchItem("");
+            setGuessCount(0);
+            setGuesses([]);
+            setCorrectPlayer(null);
+        }
         
 
         const guessPlayer = (guess) => {
@@ -30,12 +58,9 @@
                 setCorrectPlayer(true);
                 return true;
             } 
-
-            console.log("this is run", guess);
             return false;
         }
 
-        console.log("Who to find:", allPlayers[2]);
 
         const handleInputChange = (e) => {
 
@@ -94,17 +119,25 @@
 
         };
 
-        console.log("Guess count:", guessCount);
-        console.log("Guesses:", guesses);
-        
-
 
         return (
             <div>
+                <div>
+                
+                <select name="levels" id="levels" value={level} onChange={(e) => changeLevel(e.target.value)}>
+                        <option value="1"> Level 1 </option>
+                        <option value="2"> Level 2 </option>
+                        <option value="3"> Level 3 </option>
+                        <option value="4"> Level 4 </option>
+                        
+                    </select>    
+                </div>
+
+                
               {correctPlayer && (
                 <Alert icon={false} style={{backgroundColor: "green", color: "white", maxWidth: "200px", alignItems: "center",  margin: "auto", marginBottom: "10px"}}>Correct</Alert>
               )}
-              {guessCount > 4 && !correctPlayer(
+              {guessCount > 4 && !correctPlayer && (
                  <Alert icon={false} style={{backgroundColor: "red", color: "white", maxWidth: "350px", alignItems: "center",  margin: "auto", marginBottom: "10px"}}>The correct player was: {playerToFind.navn} </Alert>
               )}
 
@@ -122,7 +155,11 @@
                     <li key={player.navn} onClick={() => handleSubmit(player.navn)}>
                       {player.navn} {player.posisjon}
                     </li>
-                  ))}
+                ))}
+                    
+
+
+                  
                 </ul>
               </div>
                 
@@ -131,8 +168,8 @@
               <div>
                     {correctPlayer && (
                     <div>
-                        <Box className="player-card-container">
                         <p className="correct">{playerToFind.navn}</p>
+                        <Box className="player-card-container">
                         <p className="correct">#{playerToFind.draktnr}</p>
                         <p className="correct">{calculateAge(playerToFind.dateofbirth)}</p>
                         <p className="correct">{playerToFind.nasjonalitet}</p>
@@ -146,8 +183,8 @@
 
               {guesses.map((guess, index) => (
                     <div key={index}>
+                        <p className="player-name">{guess.navn}</p>
                         <Box className="player-card-container">
-                            <p className="player-name">{guess.navn}</p>
                             {playerToFind.draktnr === guess.draktnr ? (
                                 <p className="correct">#{guess.draktnr}</p>
                             ) : playerToFind.draktnr > guess.draktnr ? (
@@ -178,6 +215,21 @@
                     </div>
                 ))}
               </div>
+
+            {correctPlayer && 
+            <div>
+                {level > 1 && <button onClick={() => changeLevel(level - 1)}>Previous level</button>}
+                {level < 4 && <button onClick={() => changeLevel(level + 1)}>Next level</button>}
+            </div>
+            }
+
+            {guessCount > 4 && !correctPlayer && 
+            <div>
+                {level > 1 && <button onClick={() => changeLevel(level - 1)}>Previous level</button>}
+                {level < 4 && <button onClick={() => changeLevel(level + 1)}>Next level</button>}
+            </div>
+            }
+            
             </div>
           );
           
